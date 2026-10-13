@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'">
+<title>Icon Studio — make a real icon from your picture</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 24px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p.sub { margin: 0 0 18px; opacity: .7; font-size: 13px; }
+  #drop {
+    border: 2px dashed #999; border-radius: 12px; padding: 36px 20px; text-align: center;
+    cursor: pointer; font-size: 14px; margin-bottom: 18px;
+  }
+  #drop.over { border-color: #0a84ff; background: rgba(10,132,255,.08); }
+  #drop input { display: none; }
+  #preview { display: none; margin-bottom: 18px; }
+  #previewRow { display: flex; align-items: flex-end; gap: 18px; margin: 10px 0 4px; }
+  .psize { text-align: center; font-size: 11px; opacity: .7; }
+  .psize canvas { display: block; margin: 0 auto 4px; background:
+    repeating-conic-gradient(#ddd 0 25%, #fff 0 50%) 0 0 / 16px 16px; border-radius: 6px; }
+  fieldset { border: 1px solid #ccc; border-radius: 8px; margin: 0 0 18px; padding: 10px 14px; }
+  legend { font-size: 13px; padding: 0 6px; }
+  label.fmt { display: block; font-size: 14px; margin: 6px 0; cursor: pointer; }
+  label.fmt small { opacity: .65; }
+  #exportBtn {
+    font-size: 15px; padding: 10px 26px; border: 0; border-radius: 8px; cursor: pointer;
+    background: #0a84ff; color: #fff;
+  }
+  #exportBtn:disabled { opacity: .4; cursor: default; }
+  #status { font-size: 13px; margin-top: 12px; min-height: 18px; }
+  #status.ok { color: #1a7f37; }
+  details { margin-top: 18px; font-size: 13px; }
+  details summary { cursor: pointer; }
+  details ol { padding-left: 20px; }
+</style>
+</head>
+<body>
+  <h1>Icon Studio</h1>
+  <p class="sub">Upload any picture. Get a real icon file for your laptop.</p>
+
+  <div id="drop" role="button" tabindex="0" aria-label="Choose a picture">
+    <input type="file" id="file" accept="image/*">
+    <div id="dropText">Drop a picture here, or click to choose one.<br><small>PNG, JPG, WebP — anything with or without transparency.</small></div>
+  </div>
+
+  <div id="preview">
+    <div><strong>Preview</strong></div>
+    <div id="previewRow"></div>
+  </div>
+
+  <fieldset>
+    <legend>Icon format</legend>
+    <label class="fmt"><input type="radio" name="format" value="icns" checked> macOS icon <small>(.icns — for folders, files and apps on a Mac)</small></label>
+    <label class="fmt"><input type="radio" name="format" value="ico"> Windows icon <small>(.ico — for shortcuts and folders on Windows)</small></label>
+  </fieldset>
+
+  <button id="exportBtn" disabled>Save icon file…</button>
+  <button id="applyBtn" disabled style="font-size:15px;padding:10px 26px;border:0;border-radius:8px;cursor:pointer;background:#1a7f37;color:#fff;margin-left:8px;">Put it on a folder…</button>
+  <div id="status"></div>
+
+  <p style="font-size:13px;opacity:.7;margin-top:18px;">Tip: <strong>Put it on a folder</strong> does everything for you. Pick a folder and the app sets the icon on it. No manual steps.</p>
+
+<script src="iconstudio.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "vel",
+  "version": "0.4.1",
+  "description": "Turn any picture into a small floating icon on your desktop",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node float.test.js && node water.test.js && node iconmaker.test.js && node iconapply.test.js && node iconshape.test.js",
+    "release": "bash release.sh",
+    "package": "electron-packager . Vel --platform=darwin --arch=arm64 --out=dist --overwrite --icon=icon.icns --app-bundle-id=com.anoop.vel --extend-info=Info.extra.plist --ignore='^/dist' --ignore='^/node_modules' --ignore=Info.extra.plist --ignore=icon.icns --ignore=package-lock.json --ignore=index.drawn.html --ignore=vel.previous.webp --ignore='\\.test\\.js$' && codesign --force --deep --sign - dist/Vel-darwin-arm64/Vel.app",
+    "package:mac-arm": "electron-packager . Vel --platform=darwin --arch=arm64 --out=dist --overwrite --icon=icon.icns --app-bundle-id=com.anoop.vel --extend-info=Info.extra.plist --ignore='^/dist' --ignore='^/node_modules' --ignore=Info.extra.plist --ignore=icon.icns --ignore=icon.ico --ignore=package-lock.json --ignore=index.drawn.html --ignore=vel.previous.webp --ignore='\\.test\\.js$'",
+    "package:mac-intel": "electron-packager . Vel --platform=darwin --arch=x64 --out=dist --overwrite --icon=icon.icns --app-bundle-id=com.anoop.vel --extend-info=Info.extra.plist --ignore='^/dist' --ignore='^/node_modules' --ignore=Info.extra.plist --ignore=icon.icns --ignore=icon.ico --ignore=package-lock.json --ignore=index.drawn.html --ignore=vel.previous.webp --ignore='\\.test\\.js$'",
+    "package:win": "electron-packager . Vel --platform=win32 --arch=x64 --out=dist --overwrite --icon=icon.ico --ignore='^/dist' --ignore='^/node_modules' --ignore=icon.icns --ignore=icon.ico --ignore=package-lock.json --ignore=index.drawn.html --ignore=vel.previous.webp --ignore='\\.test\\.js$' --ignore=Info.extra.plist",
+    "dist": "bash package-all.sh"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^33.0.0"
+  },
+  "allowScripts": {
+    "electron@33.4.11": true
+  }
+}

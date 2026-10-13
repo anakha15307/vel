@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'">
+<title>Vel</title>
+<style>
+  html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; user-select: none; }
+  svg { width: 100%; height: 100%; cursor: grab; }
+  svg:active { cursor: grabbing; }
+  #aura { transition: transform .5s ease-out; }
+  #aura.bless { transform: scale(1.5); }
+</style>
+</head>
+<body>
+<!-- Size, picture and glow are filled in by renderer.js from the vel chosen in vels.js. -->
+<svg id="svg">
+  <defs>
+    <radialGradient id="halo"><stop offset="0" stop-color="#ffd76a" stop-opacity=".9"/><stop offset="1" stop-color="#ffd76a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <g id="aura"><circle id="glow" fill="url(#halo)"/></g>
+  <g id="vel"><image id="art"/></g>
+</svg>
+<script src="float.js"></script>
+<script src="vels.js"></script>
+<script src="water.js"></script>
+<script src="renderer.js"></script>
+</body>
+</html>

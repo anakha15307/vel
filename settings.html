@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+<title>Vel Settings</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 14px -apple-system, system-ui, sans-serif; margin: 24px; }
+  h1 { font-size: 16px; margin: 0 0 16px; }
+  label { display: flex; gap: 10px; align-items: center; }
+  .zoom { margin-top: 16px; }
+  .zoom input { flex: 1; }
+  #sizeValue, #zoomValue { min-width: 3.2em; text-align: right; }
+  #note { margin: 14px 0 0; font-size: 12px; line-height: 1.4; opacity: .6; }
+</style>
+</head>
+<body>
+<h1>Vel</h1>
+<label><input type="checkbox" id="login"> Open Vel when I log in</label>
+<label class="zoom">Size <input type="range" id="size" min="20" max="50" step="5"> <span id="sizeValue"></span></label>
+<label class="zoom">Zoom level <input type="range" id="zoom" min="50" max="150" step="10"> <span id="zoomValue"></span></label>
+<p id="note"></p>
+<script src="settings.js"></script>
+</body>
+</html>
